@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#17372f"/>
+  <circle cx="378" cy="118" r="62" fill="#f4b640"/>
+  <rect x="116" y="122" width="238" height="288" rx="34" fill="#fffaf0" stroke="#0f241f" stroke-width="14"/>
+  <path d="M166 202h128M166 262h104M166 322h146" stroke="#17372f" stroke-width="25" stroke-linecap="round"/>
+  <circle cx="338" cy="348" r="58" fill="#e85d35"/>
+  <path d="M338 304v54" stroke="#fff" stroke-width="26" stroke-linecap="round"/>
+  <circle cx="338" cy="386" r="13" fill="#fff"/>
+  <path d="M81 76l82-22-21 58-44 34z" fill="#e85d35"/>
+  <text x="82" y="154" font-family="Yu Gothic, Meiryo, sans-serif" font-size="100" font-weight="800" fill="#fffaf0">鬼</text>
+</svg>
