@@ -1,0 +1,19 @@
+{
+  "name": "鬼フォロー 確認用",
+  "short_name": "鬼フォロー",
+  "description": "未フォロー案件を見える化する確認用Web版です。",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f4ed",
+  "theme_color": "#17372f",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
