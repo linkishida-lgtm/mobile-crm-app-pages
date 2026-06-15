@@ -3,19 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>案件進捗CRM</title>
-  <meta name="description" content="案件進捗CRMのサポート情報とプライバシーポリシーです。">
+  <title>鬼フォロー</title>
+  <meta name="description" content="鬼フォローの確認用アプリ、サポート情報、プライバシーポリシーです。">
   <style>
-    :root { color-scheme: light; --bg: #f6f8fb; --panel: #fff; --text: #182230; --muted: #5d6b82; --line: #d8dee8; --accent: #1769aa; }
+    :root { color-scheme: light; --bg: #f6f8fb; --panel: #fff; --text: #182230; --muted: #5d6b82; --line: #d8dee8; --accent: #1769aa; --green: #17372f; --orange: #e85d35; }
     * { box-sizing: border-box; }
     body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
     main { max-width: 880px; margin: 0 auto; padding: 48px 20px 64px; }
-    header { border-bottom: 1px solid var(--line); margin-bottom: 32px; padding-bottom: 24px; }
+    header { border-bottom: 1px solid var(--line); margin-bottom: 32px; padding-bottom: 28px; }
     h1 { margin: 0 0 12px; font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.15; }
     h2 { margin-top: 0; font-size: 1.25rem; }
     p { margin: 0 0 16px; }
     a { color: var(--accent); font-weight: 700; }
     .lead { color: var(--muted); font-size: 1.08rem; }
+    .cta { display: inline-block; background: var(--green); color: #fff; text-decoration: none; border-radius: 10px; padding: 13px 18px; margin-top: 10px; }
+    .note { color: var(--muted); font-size: .92rem; margin-top: 12px; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
     .card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 20px; }
     footer { color: var(--muted); font-size: .92rem; margin-top: 36px; }
@@ -24,8 +26,10 @@
 <body>
   <main>
     <header>
-      <h1>案件進捗CRM</h1>
-      <p class="lead">顧客、案件、スケジュール、売上メモをスマートフォンで管理するためのCRMアプリです。</p>
+      <h1>鬼フォロー</h1>
+      <p class="lead">未フォロー案件をしつこく見える化し、進捗忘れを防ぐ案件管理アプリです。</p>
+      <p><a class="cta" href="app/">確認用アプリを開く</a></p>
+      <p class="note">この確認用Web版は一時的な動作確認用です。入力した内容は、開いたブラウザ内に保存されます。</p>
     </header>
     <section class="grid" aria-label="関連ページ">
       <article class="card">
@@ -41,7 +45,7 @@
     </section>
     <footer>
       <p>運用者: linkishida-lgtm</p>
-      <p>最終更新日: 2026年6月13日</p>
+      <p>最終更新日: 2026年6月16日</p>
     </footer>
   </main>
 </body>
