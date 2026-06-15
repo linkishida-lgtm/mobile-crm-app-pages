@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#17372f">
+  <link rel="manifest" href="manifest.webmanifest">
+  <title>鬼フォロー</title>
+  <style>
+    :root{--bg:#f7f4ed;--panel:#fffdf8;--ink:#17231f;--muted:#6f776f;--line:#ded8ca;--green:#17372f;--green2:#295846;--orange:#e85d35;--gold:#f4b640;--soft:#eef5ef;--danger:#b83624;--shadow:0 10px 30px rgba(23,55,47,.10)}
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;min-height:100vh;padding-bottom:88px} button,input,textarea,select{font:inherit} button{cursor:pointer}
+    header{position:sticky;top:0;z-index:3;background:linear-gradient(135deg,var(--green),#10251f);color:#fff;padding:18px 18px 16px;border-bottom-left-radius:22px;border-bottom-right-radius:22px;box-shadow:var(--shadow)}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;align-items:center;gap:10px}.mark{width:42px;height:42px;border-radius:12px;background:var(--orange);display:grid;place-items:center;font-weight:900;font-size:24px}.brand h1{font-size:22px;line-height:1;margin:0}.brand p{margin:4px 0 0;color:#dce7df;font-size:12px}.pill{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:8px 10px;font-size:12px;color:#fff}
+    .hero{margin-top:18px}.hero h2{font-size:24px;line-height:1.25;margin:0 0 8px}.hero p{font-size:13px;color:#dfe9e2;margin:0;line-height:1.6}
+    main{padding:16px;max-width:720px;margin:0 auto}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:2px 0 16px}.metric{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 10px;box-shadow:0 1px 2px rgba(0,0,0,.03)}.metric b{display:block;font-size:24px;line-height:1;color:var(--green)}.metric span{display:block;margin-top:7px;font-size:11px;color:var(--muted)}
+    .section-title{display:flex;align-items:center;justify-content:space-between;margin:20px 0 10px}.section-title h3{margin:0;font-size:17px}.section-title small{color:var(--muted)}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.04)}.deal{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:start}.deal h4{margin:0 0 6px;font-size:16px}.company{color:var(--muted);font-size:12px;margin-bottom:9px}.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{font-size:11px;border-radius:999px;padding:5px 8px;background:var(--soft);color:var(--green2);border:1px solid #d7e4da}.chip.hot{background:#fff0ea;color:var(--danger);border-color:#ffd2c4}.chip.gold{background:#fff7df;color:#7b5200;border-color:#f4dc98}.days{min-width:66px;text-align:center;border-radius:12px;padding:10px 8px;background:#fff0ea;color:var(--danger);font-weight:800}.days span{display:block;font-size:11px;font-weight:600;margin-top:2px}.actions{display:flex;gap:8px;margin-top:12px}.btn{border:0;border-radius:12px;padding:10px 12px;background:var(--green);color:#fff;font-weight:700;flex:1}.btn.secondary{background:#efe9dc;color:var(--green)}.btn.warn{background:var(--orange)}
+    .fab{position:fixed;right:18px;bottom:96px;width:56px;height:56px;border-radius:18px;border:0;background:var(--orange);color:#fff;font-size:28px;box-shadow:0 12px 26px rgba(232,93,53,.35);z-index:4}.nav{position:fixed;left:0;right:0;bottom:0;background:#fffdf8;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);padding:8px 8px calc(8px + env(safe-area-inset-bottom));z-index:4}.nav button{border:0;background:transparent;color:var(--muted);padding:8px 2px;border-radius:12px;font-size:11px}.nav button.active{background:var(--soft);color:var(--green);font-weight:800}.nav i{display:block;font-style:normal;font-size:20px;margin-bottom:2px}
+    .view{display:none}.view.active{display:block}.empty{padding:28px 18px;text-align:center;color:var(--muted)}.list-row{display:flex;justify-content:space-between;gap:12px;align-items:center}.list-row strong{font-size:15px}.list-row small{display:block;color:var(--muted);margin-top:4px}.status{font-size:12px;font-weight:800;color:var(--green);background:var(--soft);padding:7px 9px;border-radius:999px;white-space:nowrap}
+    .modal{position:fixed;inset:0;background:rgba(10,20,16,.45);display:none;align-items:flex-end;z-index:10}.modal.open{display:flex}.sheet{background:var(--panel);width:100%;max-width:720px;margin:0 auto;border-top-left-radius:22px;border-top-right-radius:22px;padding:18px 16px calc(18px + env(safe-area-inset-bottom));max-height:86vh;overflow:auto}.sheet h3{margin:0 0 14px}.field{margin-bottom:12px}.field label{display:block;font-size:12px;font-weight:800;color:var(--muted);margin-bottom:6px}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px;color:var(--ink)}.field textarea{min-height:86px;resize:vertical}.sheet-actions{display:flex;gap:10px;margin-top:14px}.note{font-size:12px;line-height:1.6;color:var(--muted);background:#f1ece2;border-radius:12px;padding:12px;margin-top:12px}
+  </style>
+</head>
+<body>
+<header>
+  <div class="top"><div class="brand"><div class="mark">鬼</div><div><h1>鬼フォロー</h1><p>進捗忘れを防ぐ案件管理</p></div></div><div class="pill">端末内保存</div></div>
+  <div class="hero"><h2>未フォロー案件を<br>しつこく見える化</h2><p>放置しがちな案件を上から確認。次に動くべき案件を逃さず追いかけます。</p></div>
+</header>
+<main>
+  <section id="dashboard" class="view active">
+    <div class="metrics"><div class="metric"><b id="m-stale">0</b><span>未フォロー</span></div><div class="metric"><b id="m-today">0</b><span>今日の予定</span></div><div class="metric"><b id="m-open">0</b><span>進行中案件</span></div></div>
+    <div class="section-title"><h3>今詰める案件</h3><small>古い順</small></div><div id="priority-list"></div>
+  </section>
+  <section id="deals" class="view"><div class="section-title"><h3>案件一覧</h3><small id="deal-count"></small></div><div id="deal-list"></div></section>
+  <section id="schedule" class="view"><div class="section-title"><h3>次回アクション</h3><small>予定順</small></div><div id="schedule-list"></div></section>
+  <section id="customers" class="view"><div class="section-title"><h3>顧客</h3><small>ローカル管理</small></div><div id="customer-list"></div><div class="note">この確認用Web版は、入力内容をiPhoneのブラウザ内に保存します。実際の公開アプリも端末内保存を基本にしています。</div></section>
+</main>
+<button class="fab" onclick="openSheet()" aria-label="案件を追加">＋</button>
+<nav class="nav"><button class="active" onclick="showView('dashboard',this)"><i>🏠</i>ホーム</button><button onclick="showView('deals',this)"><i>💼</i>案件</button><button onclick="showView('schedule',this)"><i>📅</i>予定</button><button onclick="showView('customers',this)"><i>🏢</i>顧客</button></nav>
+<div id="modal" class="modal" onclick="if(event.target.id==='modal')closeSheet()"><div class="sheet"><h3>案件を追加</h3><div class="field"><label>顧客名</label><input id="f-company" placeholder="例: 山田商事"></div><div class="field"><label>案件名</label><input id="f-name" placeholder="例: 更新提案"></div><div class="field"><label>進捗</label><select id="f-status"><option>初回接触</option><option>商談中</option><option>見積済</option><option>受注予定</option></select></div><div class="field"><label>最終フォロー日</label><input id="f-last" type="date"></div><div class="field"><label>次回アクション</label><input id="f-next" placeholder="例: 明日10時に再連絡"></div><div class="field"><label>メモ</label><textarea id="f-memo" placeholder="相手の反応、見積内容、次に確認すること"></textarea></div><div class="sheet-actions"><button class="btn secondary" onclick="closeSheet()">閉じる</button><button class="btn warn" onclick="addDeal()">保存</button></div></div></div>
+<script>
+const key='oni_follow_deals_v1';
+const sample=[
+{id:'s1',company:'青葉設備',name:'保守契約の更新',status:'見積済',last:daysAgo(12),next:'本日16:00に条件確認',memo:'金額調整の返答待ち'},
+{id:'s2',company:'南町クリニック',name:'予約管理の相談',status:'商談中',last:daysAgo(7),next:'明日午前に再連絡',memo:'院長確認待ち'},
+{id:'s3',company:'北山フーズ',name:'新店舗向け導入',status:'初回接触',last:daysAgo(3),next:'資料送付後に電話',memo:'7月開始を検討'},
+{id:'s4',company:'白川工務店',name:'既存顧客フォロー',status:'受注予定',last:daysAgo(1),next:'契約書の送付',memo:'担当者は前向き'}
+];
+function daysAgo(n){const d=new Date();d.setDate(d.getDate()-n);return d.toISOString().slice(0,10)}
+function load(){let rows=JSON.parse(localStorage.getItem(key)||'null');if(!rows){rows=sample;localStorage.setItem(key,JSON.stringify(rows))}return rows}
+function save(rows){localStorage.setItem(key,JSON.stringify(rows))}
+function staleDays(d){return Math.max(0,Math.floor((Date.now()-new Date(d).getTime())/86400000))}
+function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function card(d){const days=staleDays(d.last);return `<article class="card deal"><div><h4>${esc(d.name)}</h4><div class="company">${esc(d.company)}</div><div class="chips"><span class="chip ${days>=7?'hot':''}">最終フォロー ${days}日前</span><span class="chip gold">${esc(d.status)}</span><span class="chip">${esc(d.next||'次回アクション未設定')}</span></div><div class="actions"><button class="btn secondary" onclick="markFollow('${d.id}')">フォロー済み</button><button class="btn" onclick="alert('${esc(d.memo||'メモなし')}')">メモ</button></div></div><div class="days">${days}<span>日前</span></div></article>`}
+function render(){const rows=load();const sorted=[...rows].sort((a,b)=>staleDays(b.last)-staleDays(a.last));document.getElementById('m-stale').textContent=rows.filter(d=>staleDays(d.last)>=7).length;document.getElementById('m-today').textContent=rows.filter(d=>(d.next||'').includes('本日')||(d.next||'').includes('今日')).length;document.getElementById('m-open').textContent=rows.filter(d=>d.status!=='受注').length;document.getElementById('priority-list').innerHTML=sorted.slice(0,3).map(card).join('')||empty('案件がありません');document.getElementById('deal-list').innerHTML=sorted.map(card).join('')||empty('案件がありません');document.getElementById('deal-count').textContent=`${rows.length}件`;document.getElementById('schedule-list').innerHTML=rows.map(d=>`<div class="card list-row"><div><strong>${esc(d.next||'次回アクション未設定')}</strong><small>${esc(d.company)} / ${esc(d.name)}</small></div><span class="status">${esc(d.status)}</span></div>`).join('')||empty('予定がありません');document.getElementById('customer-list').innerHTML=[...new Set(rows.map(d=>d.company))].map(c=>`<div class="card list-row"><div><strong>${esc(c)}</strong><small>案件 ${rows.filter(d=>d.company===c).length}件</small></div><span class="status">管理中</span></div>`).join('')||empty('顧客がありません')}
+function empty(t){return `<div class="card empty">${t}</div>`}
+function showView(id,btn){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));btn.classList.add('active')}
+function openSheet(){document.getElementById('f-last').value=daysAgo(0);document.getElementById('modal').classList.add('open')}
+function closeSheet(){document.getElementById('modal').classList.remove('open')}
+function addDeal(){const rows=load();rows.push({id:Date.now().toString(36),company:document.getElementById('f-company').value||'未設定顧客',name:document.getElementById('f-name').value||'新規案件',status:document.getElementById('f-status').value,last:document.getElementById('f-last').value||daysAgo(0),next:document.getElementById('f-next').value||'次回アクション未設定',memo:document.getElementById('f-memo').value});save(rows);closeSheet();render()}
+function markFollow(id){const rows=load().map(d=>d.id===id?{...d,last:daysAgo(0)}:d);save(rows);render()}
+if('serviceWorker' in navigator){navigator.serviceWorker.register('./service-worker.js').catch(()=>{})}render();
+</script>
+</body>
+</html>
