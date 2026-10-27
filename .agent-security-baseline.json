@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "files": {
+    ".github/CODEOWNERS": "858d355a78850671893f25611dbc3125213b06d9",
+    ".github/workflows/agent-security-guard.yml": "a8afec6297c4513e8c9c78ddfce2c05c4fba3e48",
+    "AGENTS.md": "fbdab676eb99f72941940729e7034d277c01ba38",
+    "AGENT_SECURITY.md": "fa448bb8d2b7e4af3712c13ce1fd754547826554",
+    "CLAUDE.md": "7c5d67e4d0a6af630fda5723a494adf771b453f3",
+    "agent_security_check.py": "3786cdd836cabbbead56f6e3586fa744df8ecf07",
+    "test_agent_security_check.py": "0f36f3bba7ecba180eecf4cac82a5569ce8a1ea7"
+  }
+}
