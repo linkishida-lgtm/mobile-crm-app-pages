@@ -1,0 +1,17 @@
+# AIの指示・設定・防御ファイルの変更をレビューする担当
+AGENTS.md @linkishida-lgtm
+AGENTS.override.md @linkishida-lgtm
+CLAUDE.md @linkishida-lgtm
+CLAUDE.local.md @linkishida-lgtm
+SKILL.md @linkishida-lgtm
+.mcp.json @linkishida-lgtm
+.claude.json @linkishida-lgtm
+**/.claude/** @linkishida-lgtm
+**/.codex/** @linkishida-lgtm
+**/.agents/** @linkishida-lgtm
+**/.vscode/** @linkishida-lgtm
+/.github/ @linkishida-lgtm
+/AGENT_SECURITY.md @linkishida-lgtm
+/agent_security_check.py @linkishida-lgtm
+/test_agent_security_check.py @linkishida-lgtm
+/.agent-security-baseline.json @linkishida-lgtm

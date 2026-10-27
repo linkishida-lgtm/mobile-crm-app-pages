@@ -1,0 +1,32 @@
+name: Agent security guard
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  agent-security:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Checkout without persisted credentials
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check agent instructions and configuration
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          checker="$RUNNER_TEMP/agent-security-check.py"
+          if git cat-file -e "$BASE_SHA:agent_security_check.py" 2>/dev/null; then
+            git show "$BASE_SHA:agent_security_check.py" > "$checker"
+          else
+            echo "Bootstrap: review the new checker before merging this PR."
+            cp agent_security_check.py "$checker"
+          fi
+          python3 -I "$checker"
